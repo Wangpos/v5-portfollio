@@ -37,13 +37,20 @@ const Navbar = () => {
             <button
               key={section.id}
               onClick={() => scrollToSection(section.id)}
-              className={`text-sm font-medium transition-colors duration-300 ${
+              className={`relative text-sm font-medium transition-colors duration-300 group ${
                 activeSection === section.id
                   ? "text-primary"
                   : "text-foreground/60 hover:text-foreground"
               }`}
             >
               {section.label}
+              <span
+                className={`absolute left-0 bottom-0 h-0.5 bg-primary transition-all duration-300 ${
+                  activeSection === section.id
+                    ? "w-full"
+                    : "w-0 group-hover:w-full"
+                }`}
+              />
             </button>
           ))}
         </div>
